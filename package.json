@@ -1,4 +1,5 @@
 {
+  "name": "test-react16-throw-promise-in-useeffect",
   "private": true,
   "scripts": {
     "start": "umi dev",
