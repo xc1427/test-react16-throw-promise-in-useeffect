@@ -1,18 +1,14 @@
-import React from 'react';
+import React, { Suspense, useEffect, useState, useLayoutEffect } from 'react';
 import styles from './index.css';
-
+import { fetchProfileData } from '@/fetchData';
+import { ErrorBoundary } from './ErrorBoundary';
+import { Tester } from './Tester';
 export default function() {
   return (
-    <div className={styles.normal}>
-      <div className={styles.welcome} />
-      <ul className={styles.list}>
-        <li>To get started, edit <code>src/pages/index.js</code> and save to reload.</li>
-        <li>
-          <a href="https://umijs.org/guide/getting-started.html">
-            Getting Started
-          </a>
-        </li>
-      </ul>
-    </div>
+    <ErrorBoundary fallback={<h2>Could not fetch </h2>}>
+      <Suspense fallback={<h1>loading...</h1>}>
+        <Tester />
+      </Suspense>
+    </ErrorBoundary>
   );
 }
